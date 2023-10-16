@@ -31,7 +31,7 @@ const script: Firebot.CustomScript<Params> = {
 
     const message = eventData?.messageText as string | undefined;
 
-    const match = /^https:\/\/clips\.twitch\.tv\/(.*)$/i.exec(message);
+    const match = /https:\/\/clips\.twitch\.tv\/(.*)/i.exec(message);
 
     if (match) {
       const twitchUserRoles = eventData?.twitchUserRoles as string[] | undefined;
