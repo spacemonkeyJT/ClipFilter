@@ -1,18 +1,33 @@
-# Starter Firebot Custom Script in Typescript
+# ClipFilter custom script for Firebot
 
-### Setup
-1. Create a new repo based off this template (Click "Use this Template" above) or simply fork it
-2. `npm install`
+## What is it?
 
-### Building
-Dev:
-1. `npm run build:dev`
-- Automatically copies the compiled .js to Firebot's scripts folder.
+This is a custom script for [Firebot](https://firebot.app/) which deletes any posted clip links that are not for the broadcaster's channel.
 
-Release:
-1. `npm run build`
-- Copy .js from `/dist`
+Any links posted by the broadcaster, mods and vips are exempt.
 
-### Note
-- Keep the script definition object (that contains the `run`, `getScriptManifest`, and `getDefaultParameters` funcs) in the `index.ts` file as it's important those function names don't get minimized.
-- Edit the `"scriptOutputName"` property in `package.json` to change the filename of the outputted script.
+## Download
+
+[clipFilter.js](https://github.com/spacemonkeyJT/ClipFilter/releases/latest/download/clipFilter.js)
+
+## How to install
+
+In Firebot, click **SETTINGS** on the side bar, then **Scripts**, and enable **Custom Scripts** if it's not already enabled.
+
+![Settings](./images/settings-custom-scripts.png)
+
+Add a new event to trigger on Chat Message, and give it a suitable name.
+
+![Create Event](./images/create-event.png)
+
+Add the **Run Custom Script** effect, and click **scripts folder** to open the scripts folder.
+
+![Scripts Folder](./images/scripts-folder.png)
+
+Download the [clipFilter.js](https://github.com/spacemonkeyJT/ClipFilter/releases/latest/download/clipFilter.js) file and save it into the scripts folder.
+
+Click the refresh button and choose the **clipFilter.js** file, then edit the message parameter, or accept the default.
+
+![Add Effect](./images/configure-script.png)
+
+Click **Add** and save the command. Edit any other settings as needed, then it should be good to go.
