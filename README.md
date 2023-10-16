@@ -10,7 +10,34 @@ Any links posted by the broadcaster, mods and vips are exempt.
 
 [clipFilter.js](https://github.com/spacemonkeyJT/ClipFilter/releases/latest/download/clipFilter.js)
 
-## How to install
+## How does it work?
+
+Blocking all links except clips from the broadcaster's channel is tricky because many clip links don't contain the channel name, they're just https://clips.twitch.tv/some_id, so we can't just allow the links with a simple prefix. Therefore the approach taken by this script is to:
+
+* Disable Twitch's inbuilt hyperlink blocking, to allow links to be posted
+* Use a bot with URL moderation to delete all links except clips
+* Use this custom script to further delete clip links that are not from the broadcaster's channel
+
+Note that this means links are posted but then immediately deleted by the bot. This is subtly different than Twitch's blocking mechanism, which replaces the link with "***" before it ever gets posted. Using a bot to delete messages containing links instead means that users with browser extensions like BTTV may be able to still view deleted messages and access the links if they choose to.
+
+## Allowing clip links
+
+To allow clip links to be posted in chat, you'll first need to allow links to be posted in your [Twitch moderation settings](https://link.twitch.tv/moderation).
+
+Ensure that the **Block Hyperlinks** option is **disabled**.
+
+![Hyperlinks](./images/no-block-hyperlinks.png)
+
+Next, you need to block all links except for clips, which come in a couple of formats.
+
+* https://www.twitch.tv/your_username
+* https://clips.twitch.tv/
+
+This can be done by enabling URL Moderation in Firebot, and configuring the URL Allowlist. Alternatively, you can use another tool such as Streamlabs or StreamElements if you prefer.
+
+![Allowlist Firebot](./images/allowurls-firebot.png)
+
+## Installing the script
 
 In Firebot, click **SETTINGS** on the side bar, then **Scripts**, and enable **Custom Scripts** if it's not already enabled.
 
@@ -30,4 +57,6 @@ Click the refresh button and choose the **clipFilter.js** file, then edit the me
 
 ![Add Effect](./images/configure-script.png)
 
-Click **Add** and save the command. Edit any other settings as needed, then it should be good to go.
+Click **Add** and save the command.
+
+Now while this event is active, the script will trigger on chat messages, and delete messages containing clip links from other channels, unless posted by the broadcaster, or a moderator or vip.
