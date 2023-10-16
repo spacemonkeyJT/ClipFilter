@@ -46,7 +46,7 @@ const script: Firebot.CustomScript<Params> = {
 
       if (!clip || clip.broadcasterId !== broadcasterId) {
         if (messageParam) {
-          twitchChat.sendChatMessage(`@${username} ${messageParam}`, undefined, 'streamer');
+          twitchChat.sendChatMessage(`@${username} ${messageParam}`);
         }
 
         return {
