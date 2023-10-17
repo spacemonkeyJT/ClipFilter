@@ -33,7 +33,7 @@ Next, you need to block all links except for clips, which come in a couple of fo
 * https://www.twitch.tv/your_username
 * https://clips.twitch.tv/
 
-This can be done by enabling URL Moderation in Firebot, and configuring the URL Allowlist. Alternatively, you can use another tool such as Streamlabs or StreamElements if you prefer.
+This can be done by enabling URL Moderation in Firebot, and configuring the URL Allowlist. Alternatively, you can use another tool such as Streamlabs or StreamElements if you prefer. Make sure to exempt the streamer, mods and vips.
 
 ![Allowlist Firebot](./images/allowurls-firebot.png)
 
