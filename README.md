@@ -12,7 +12,9 @@ Any links posted by the broadcaster, mods and vips are exempt.
 
 ## How does it work?
 
-Blocking all links except clips from the broadcaster's channel is tricky because many clip links don't contain the channel name, they're just https://clips.twitch.tv/some_id, so we can't just allow the links with a simple prefix. Therefore the approach taken by this script is to:
+Blocking all links except clips from the broadcaster's channel is tricky because many clip links don't contain the channel name, they're just https://clips.twitch.tv/some_id, so we can't just allow the links with a simple prefix. Therefore, the approach here is to use a custom script which looks up the clip and deletes the message if it's not for the broadcaster's channel.
+
+To set this up, we need to do the following:
 
 * Disable Twitch's inbuilt hyperlink blocking, to allow links to be posted
 * Use a bot with URL moderation to delete all links except clips
